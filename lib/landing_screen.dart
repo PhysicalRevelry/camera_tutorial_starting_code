@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LandingScreen extends StatefulWidget {
   @override
@@ -47,15 +46,6 @@ class _LandingScreenState extends State<LandingScreen> {
     }
   }
 
-  String _imagePath;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    loadImage();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,13 +85,5 @@ class _LandingScreenState extends State<LandingScreen> {
     imageFile = await ImagePicker().getImage(source: ImageSource.camera);
     this.setState(() {});
     Navigator.of(context).pop();
-  }
-
-
-  void loadImage() async {
-    SharedPreferences saveImage = await SharedPreferences.getInstance();
-    setState(() {
-      _imagePath = saveImage.getString("image path");
-    });
   }
 }
