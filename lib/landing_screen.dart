@@ -74,14 +74,12 @@ class _LandingScreenState extends State<LandingScreen> {
   PickedFile imageFile;
 
   void _openGallery(BuildContext context) async {
-    // ignore: deprecated_member_use
     imageFile = await ImagePicker().getImage(source: ImageSource.gallery);
     this.setState(() {});
     Navigator.of(context).pop();
   }
 
   void _openCamera(BuildContext context) async {
-    // ignore: deprecated_member_use
     imageFile = await ImagePicker().getImage(source: ImageSource.camera);
     this.setState(() {});
     Navigator.of(context).pop();
